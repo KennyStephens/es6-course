@@ -150,3 +150,75 @@ var products = [
 
 // console.log(postForComment(posts, comment));
 
+// Every and Some ----------------------------------------------------------->
+
+var computers = [
+    { name: 'Apple', ram: 24 },
+    { name: 'Compaq', ram: 4 },
+    { name: 'Acer', ram: 32 }
+];
+
+// var allComputersCanRunProgram = true;
+// var onlySomeComputersCanRunProgram = false;
+
+// for (var i = 0; i < computers.length; i++) {
+//     var computer = computers[i];
+
+//     if (computer.ram < 16) {
+//         allComputersCanRunProgram = false;
+//     } else {
+//         onlySomeComputersCanRunProgram = true;
+//     }
+// }
+
+// console.log(allComputersCanRunProgram);
+// console.log(onlySomeComputersCanRunProgram);
+
+// const comp = computers.every(computer => {
+//     return computer.ram > 16;
+// });
+
+// const comp = computers.some(computer => {
+//     return computer.ram > 16;
+// });
+
+
+// console.log(comp);
+
+// var names = [
+//     'Alexandria',
+//     'Matthew',
+//     'Joe'
+// ];
+
+// // const namesOutput = names.every(name => {
+// //     return name.length > 4;
+// // });
+
+// const namesOutput = names.some(name => {
+//     return name.length > 4;
+// });
+
+// console.log(namesOutput);
+
+function Field(value) {
+    this.value = value;
+}
+
+Field.prototype.validate = function() {
+    return this.value.length > 0;
+};
+
+var username = new Field('2cool');
+var password = new Field('my_password');
+var birthdate = new Field('10/10/2010');
+
+console.log(username.validate());
+
+var fields = [username, password, birthdate];
+
+var formIsValid = fields.every(field => {
+    return field.validate();
+});
+
+console.log(formIsValid);
