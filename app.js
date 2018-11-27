@@ -222,3 +222,9 @@ var formIsValid = fields.every(field => {
 });
 
 console.log(formIsValid);
+
+if(formIsValid) {
+    // allow user to submit
+} else {
+    // show error message
+}
