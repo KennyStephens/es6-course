@@ -152,11 +152,11 @@ var products = [
 
 // Every and Some ----------------------------------------------------------->
 
-var computers = [
-    { name: 'Apple', ram: 24 },
-    { name: 'Compaq', ram: 4 },
-    { name: 'Acer', ram: 32 }
-];
+// var computers = [
+//     { name: 'Apple', ram: 24 },
+//     { name: 'Compaq', ram: 4 },
+//     { name: 'Acer', ram: 32 }
+// ];
 
 // var allComputersCanRunProgram = true;
 // var onlySomeComputersCanRunProgram = false;
@@ -201,30 +201,77 @@ var computers = [
 
 // console.log(namesOutput);
 
-function Field(value) {
-    this.value = value;
-}
+// function Field(value) {
+//     this.value = value;
+// }
 
-Field.prototype.validate = function() {
-    return this.value.length > 0;
+// Field.prototype.validate = function() {
+//     return this.value.length > 0;
+// };
+
+// var username = new Field('2cool');
+// var password = new Field('my_password');
+// var birthdate = new Field('10/10/2010');
+
+// console.log(username.validate());
+
+// var fields = [username, password, birthdate];
+
+// var formIsValid = fields.every(field => {
+//     return field.validate();
+// });
+
+// console.log(formIsValid);
+
+// if(formIsValid) {
+//     // allow user to submit
+// } else {
+//     // show error message
+// }
+
+// Reduce ----------------------------------------------------------->
+// var numbers = [10, 20, 30];
+// var sum = 0;
+
+// // for(let i = 0; i < numbers.length; i++) {
+// //     sum += numbers[i];
+// // }
+
+// const reduced = numbers.reduce((sum, number) => {
+//     return sum + number;
+// }, 0);
+
+// console.log(reduced);
+
+// var primaryColors = [
+//     { color: 'red' },
+//     { color: 'yellow' },
+//     { color: 'blue' }
+// ];
+
+// var reduced = primaryColors.reduce((previous, primaryColor) => {
+//     previous.push(primaryColor.color);
+//     return previous;
+// }, []);
+
+// console.log(reduced);
+
+/* ========================================
+         INTERVIEW QUESTION EXAMPLE
+======================================== */
+function balancedParens(string) {
+    return !string.split('').reduce((previous, char) => {
+        if(previous < 0) {
+            return previous;
+        }
+        if(char === '(') {
+            return ++previous;
+        };
+        if(char === ')') {
+            return --previous;
+        }
+        return previous;
+    }, 0);
 };
 
-var username = new Field('2cool');
-var password = new Field('my_password');
-var birthdate = new Field('10/10/2010');
-
-console.log(username.validate());
-
-var fields = [username, password, birthdate];
-
-var formIsValid = fields.every(field => {
-    return field.validate();
-});
-
-console.log(formIsValid);
-
-if(formIsValid) {
-    // allow user to submit
-} else {
-    // show error message
-}
+console.log(balancedParens('(((())))'));
